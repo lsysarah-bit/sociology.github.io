@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sociology Archive & Library | The Human Story Behind the Theories</title>
+    <meta name="description" content="An elegant, museum-inspired online archive exploring why sociologists formed their ideas, grounded in their personal lives and historical contexts.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navigation Header -->
+    <header class="library-header" id="mainHeader">
+        <div class="header-container">
+            <div class="brand">
+                <a href="#hero" class="brand-link">
+                    <span class="brand-icon"><i data-lucide="landmark"></i></span>
+                    <div class="brand-text">
+                        <span class="brand-title">THE SOCIOLOGY ARCHIVE</span>
+                        <span class="brand-subtitle">Museum of Social Thought & History</span>
+                    </div>
+                </a>
+            </div>
+            
+            <nav class="gallery-nav">
+                <button class="nav-btn active" data-filter="all">All Galleries</button>
+                <button class="nav-btn" data-filter="era1">1800–1914</button>
+                <button class="nav-btn" data-filter="era2">1914–1970s</button>
+                <button class="nav-btn" data-filter="era3">1980s–2005</button>
+                <button class="nav-btn" data-filter="era4">Society Today</button>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search sociologist, concept, or era..." aria-label="Search sociologists or concepts">
+                </div>
+                <button class="journal-trigger-btn" id="openJournalBtn" title="Open Visitor Reading Journal">
+                    <i data-lucide="book-open"></i>
+                    <span>Visitor Journal</span>
+                    <span class="journal-badge" id="journalCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="mainContent">
+        <!-- Hero Foyer Section -->
+        <section class="hero-foyer" id="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-container">
+                <div class="hero-badge">
+                    <i data-lucide="compass"></i>
+                    <span>A Museum of Human Ideas & Historical Context</span>
+                </div>
+                <h1 class="hero-title">Not just <em>what</em> they believed,<br>but <strong>why</strong> they came to those ideas.</h1>
+                <p class="hero-description">
+                    Welcome to the archive. Step through four historical galleries to explore how personal struggles, economic revolutions, wartime anxieties, and social positions shaped 12 pivotal sociological thinkers—and discover how their lenses help us understand society today.
+                </p>
+
+                <div class="hero-quick-stats">
+                    <div class="stat-pill">
+                        <i data-lucide="history"></i>
+                        <span>4 Era Galleries (1800–Present)</span>
+                    </div>
+                    <div class="stat-pill">
+                        <i data-lucide="users"></i>
+                        <span>12 Key Sociological Thinkers</span>
+                    </div>
+                    <div class="stat-pill">
+                        <i data-lucide="sparkles"></i>
+                        <span>Modern Reflection Wall</span>
+                    </div>
+                    <div class="stat-pill">
+                        <i data-lucide="file-text"></i>
+                        <span>Exportable Visitor PDF Journal</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Controls & Search Results Banner -->
+        <section class="gallery-controls-bar">
+            <div class="controls-container">
+                <div class="active-filter-indicator" id="filterIndicator">
+                    Showing <strong>All 12 Thinkers</strong> across 4 Historical Galleries
+                </div>
+                <div class="view-toggle">
+                    <span class="view-label">Filter Era:</span>
+                    <select id="eraSelectMobile" aria-label="Select Gallery Era">
+                        <option value="all">All Era Galleries</option>
+                        <option value="era1">Gallery 1: The Birth of Sociology (1800–1914)</option>
+                        <option value="era2">Gallery 2: Understanding Modern Society (1914–1970s)</option>
+                        <option value="era3">Gallery 3: Late Modernity (1980s–2005)</option>
+                        <option value="era4">Gallery 4: Society Today (2005–Present)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY 1 SECTION -->
+        <section class="gallery-section" id="gallery-era1" data-era="era1">
+            <div class="gallery-header-banner">
+                <div class="era-tag-badge">GALLERY I</div>
+                <h2 class="gallery-title">The Birth of Sociology <span class="era-dates">(1800–1914)</span></h2>
+                <p class="gallery-intro">
+                    <strong>Historical Context:</strong> Industrialisation, urbanisation, capitalism, scientific thinking and the emergence of modern society. Early sociologists sought to make sense of the chaotic new industrial world.
+                </p>
+            </div>
+            <div class="exhibits-grid" id="grid-era1">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- GALLERY 2 SECTION -->
+        <section class="gallery-section" id="gallery-era2" data-era="era2">
+            <div class="gallery-header-banner">
+                <div class="era-tag-badge">GALLERY II</div>
+                <h2 class="gallery-title">Understanding Modern Society <span class="era-dates">(1914–1970s)</span></h2>
+                <p class="gallery-intro">
+                    <strong>Historical Context:</strong> World Wars, welfare states, civil rights, social institutions, everyday life and identity.
+                </p>
+            </div>
+            <div class="exhibits-grid" id="grid-era2">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- GALLERY 3 SECTION -->
+        <section class="gallery-section" id="gallery-era3" data-era="era3">
+            <div class="gallery-header-banner">
+                <div class="era-tag-badge">GALLERY III</div>
+                <h2 class="gallery-title">Late Modernity <span class="era-dates">(1980s–2005)</span></h2>
+                <p class="gallery-intro">
+                    <strong>Historical Context:</strong> Globalisation, consumer culture, individualisation, risk society and postmodern debates.
+                </p>
+            </div>
+            <div class="exhibits-grid" id="grid-era3">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- GALLERY 4 SECTION -->
+        <section class="gallery-section" id="gallery-era4" data-era="era4">
+            <div class="gallery-header-banner modern-gallery-banner">
+                <div class="era-tag-badge gold">GALLERY IV &bull; INTERACTIVE REFLECTION</div>
+                <h2 class="gallery-title">Society Today <span class="era-dates">(2005–Present)</span></h2>
+                <p class="gallery-intro">
+                    <strong>Living Archive & Reflection Wall:</strong> Digital technology, social media, AI, climate change, globalisation and contemporary social issues. Step up to the reflection cards below to explore how classical and late-modern sociological theories can still be applied to today's society.
+                </p>
+            </div>
+
+            <div class="reflection-wall-grid">
+                <!-- Modern Scenario 1 -->
+                <article class="reflection-card">
+                    <div class="reflection-card-header">
+                        <div class="scenario-icon"><i data-lucide="cpu"></i></div>
+                        <div class="scenario-title-area">
+                            <span class="scenario-category">DIGITAL AGE & AUTOMATION</span>
+                            <h3>Generative AI & Algorithmic Workplace Surveillance</h3>
+                        </div>
+                    </div>
+                    <p class="scenario-desc">
+                        As workers navigate AI prompts, automated productivity metrics, and remote monitoring, how do classical theories help us understand their lived experience?
+                    </p>
+                    <div class="lens-accordion">
+                        <details class="lens-item" open>
+                            <summary class="lens-summary">
+                                <span class="lens-author">Karl Marx (1818–1883)</span>
+                                <span class="lens-tag">Alienation & Surplus Value</span>
+                            </summary>
+                            <div class="lens-body">
+                                <p>Marx would argue that AI is the ultimate form of dead labor dominating living labor. Coders and creators feed their knowledge into algorithms that their employers own, alienating them from their creative product and turning human expertise into automated capital.</p>
+                            </div>
+                        </details>
+
+                        <details class="lens-item">
+                            <summary class="lens-summary">
+                                <span class="lens-author">Max Weber (1864–1920)</span>
+                                <span class="lens-tag">The Algorithmic Iron Cage</span>
+                            </summary>
+                            <div class="lens-body">
+                                <p>Weber would view AI keylogging and algorithmic management as the culmination of rationalisation. Human judgment and empathy are replaced by mathematical efficiency, trapping workers inside a digital "Iron Cage" governed by non-human rules.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <button class="save-scenario-btn" data-scenario="Generative AI & Algorithmic Workplace Surveillance">
+                        <i data-lucide="bookmark"></i> Save Reflection to Journal
+                    </button>
+                </article>
+
+                <!-- Modern Scenario 2 -->
+                <article class="reflection-card">
+                    <div class="reflection-card-header">
+                        <div class="scenario-icon"><i data-lucide="smartphone"></i></div>
+                        <div class="scenario-title-area">
+                            <span class="scenario-category">SOCIAL MEDIA & IDENTITY</span>
+                            <h3>Curated Online Profiles & Digital Loneliness</h3>
+                        </div>
+                    </div>
+                    <p class="scenario-desc">
+                        Hyper-curated Instagram feeds, TikTok trends, and 24/7 connectivity exist alongside record levels of youth anxiety and isolation.
+                    </p>
+                    <div class="lens-accordion">
+                        <details class="lens-item" open>
+                            <summary class="lens-summary">
+                                <span class="lens-author">Howard Becker (Born 1928)</span>
+                                <span class="lens-tag">Digital Master Status</span>
+                            </summary>
+                            <div class="lens-body">
+                                <p>Becker highlights how online labels (likes, follower counts, viral call-outs) quickly become a person's "Master Status". Society treats someone based on their public digital tag, reinforcing self-fulfilling online identities.</p>
+                            </div>
+                        </details>
+
+                        <details class="lens-item">
+                            <summary class="lens-summary">
+                                <span class="lens-author">Émile Durkheim (1858–1917)</span>
+                                <span class="lens-tag">Digital Anomie</span>
+                            </summary>
+                            <div class="lens-body">
+                                <p>Durkheim would diagnose high online anxiety as modern <em>Anomie</em> (normlessness). Although connected to millions online, users lack organic moral community and deep shared social ties, leaving them feeling socially adrift.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <button class="save-scenario-btn" data-scenario="Curated Online Profiles & Digital Loneliness">
+                        <i data-lucide="bookmark"></i> Save Reflection to Journal
+                    </button>
+                </article>
+
+                <!-- Modern Scenario 3 -->
+                <article class="reflection-card">
+                    <div class="reflection-card-header">
+                        <div class="scenario-icon"><i data-lucide="cloud-rain"></i></div>
+                        <div class="scenario-title-area">
+                            <span class="scenario-category">CLIMATE & UNCERTAINTY</span>
+                            <h3>Eco-Anxiety & Extreme Weather Risk</h3>
+                        </div>
+                    </div>
+                    <p class="scenario-desc">
+                        Wildfires, extreme heat, and microplastics create global anxiety where threats are produced by human industry rather than raw nature.
+                    </p>
+                    <div class="lens-accordion">
+                        <details class="lens-item" open>
+                            <summary class="lens-summary">
+                                <span class="lens-author">Ulrich Beck (1944–2015)</span>
+                                <span class="lens-tag">Manufactured Risk Society</span>
+                            </summary>
+                            <div class="lens-body">
+                                <p>Beck showed that late modern risks are "manufactured"—they stem from industrial progress itself. Unlike ancient droughts, climate change affects everyone regardless of borders, making risk management a central part of daily personal life.</p>
+                            </div>
+                        </details>
+
+                        <details class="lens-item">
+                            <summary class="lens-summary">
+                                <span class="lens-author">Antonio Gramsci (1891–1937)</span>
+                                <span class="lens-tag">Hegemony of Fossil Capital</span>
+                            </summary>
+                            <div class="lens-body">
+                                <p>Gramsci would examine how powerful industrial interests maintain cultural hegemony, framing fossil fuel consumption as "normal common sense" and shifting environmental blame onto individual consumer recycling.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <button class="save-scenario-btn" data-scenario="Eco-Anxiety & Extreme Weather Risk">
+                        <i data-lucide="bookmark"></i> Save Reflection to Journal
+                    </button>
+                </article>
+
+                <!-- Modern Scenario 4 -->
+                <article class="reflection-card">
+                    <div class="reflection-card-header">
+                        <div class="scenario-icon"><i data-lucide="graduation-cap"></i></div>
+                        <div class="scenario-title-area">
+                            <span class="scenario-category">CULTURE & CLASS</span>
+                            <h3>Elite Credentials, Taste & Aesthetic Consumption</h3>
+                        </div>
+                    </div>
+                    <p class="scenario-desc">
+                        From niche coffee roasters and organic groceries to university credentials and artistic taste—how subtle cultural signals divide class groups.
+                    </p>
+                    <div class="lens-accordion">
+                        <details class="lens-item" open>
+                            <summary class="lens-summary">
+                                <span class="lens-author">Pierre Bourdieu (1930–2002)</span>
+                                <span class="lens-tag">Cultural Capital & Habitus</span>
+                            </summary>
+                            <div class="lens-body">
+                                <p>Bourdieu proved that class isn't just income; it's <em>Cultural Capital</em> (accent, artistic knowledge, subtle etiquette). Middle-class families pass down a "Habitus" that schools and elite institutions reward, seamlessly preserving class privilege.</p>
+                            </div>
+                        </details>
+
+                        <details class="lens-item">
+                            <summary class="lens-summary">
+                                <span class="lens-author">Ann Oakley (Born 1944)</span>
+                                <span class="lens-tag">Invisible Domestic Labor</span>
+                            </summary>
+                            <div class="lens-body">
+                                <p>Oakley reminds us to inspect who performs the hidden domestic and care labor behind high-flying careers and aesthetic lifestyles, ensuring gendered work remains visible.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <button class="save-scenario-btn" data-scenario="Elite Credentials, Taste & Aesthetic Consumption">
+                        <i data-lucide="bookmark"></i> Save Reflection to Journal
+                    </button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- EXHIBIT DRAWER / MODAL (Per Sociologist) -->
+    <div class="modal-backdrop" id="exhibitModalBackdrop">
+        <dialog class="exhibit-modal" id="exhibitModal" aria-labelledby="modalAuthorName">
+            <button class="modal-close-btn" id="closeModalBtn" aria-label="Close Exhibit Room">
+                <i data-lucide="x"></i>
+            </button>
+            
+            <div class="modal-header-hero">
+                <div class="author-portrait-frame">
+                    <span class="author-initials" id="modalInitials">KM</span>
+                </div>
+                <div class="author-title-block">
+                    <div class="modal-era-badge" id="modalEraBadge">Gallery 1 &bull; 1800–1914</div>
+                    <h2 class="author-name" id="modalAuthorName">Karl Marx</h2>
+                    <p class="author-lifespan-origin" id="modalLifespanOrigin">1818–1883 &bull; Trier, Prussia / London, England</p>
+                </div>
+            </div>
+
+            <!-- Modal Navigation Tabs -->
+            <nav class="modal-tabs">
+                <button class="tab-btn active" data-tab="person">
+                    <i data-lucide="user"></i> 1. The Person & Origin
+                </button>
+                <button class="tab-btn" data-tab="timeline">
+                    <i data-lucide="clock"></i> 2. Historical Crucible
+                </button>
+                <button class="tab-btn" data-tab="why">
+                    <i data-lucide="lightbulb"></i> 3. Why They Believed It
+                </button>
+                <button class="tab-btn" data-tab="concepts">
+                    <i data-lucide="book"></i> 4. Key Concepts & Quotes
+                </button>
+            </nav>
+
+            <!-- Tab Contents -->
+            <div class="modal-body">
+                <!-- TAB 1: THE PERSON -->
+                <div class="tab-pane active" id="pane-person">
+                    <div class="pane-intro">
+                        <h3>Childhood, Personal Life & Worldview Formation</h3>
+                        <p id="personBioIntro"></p>
+                    </div>
+                    <div class="biography-card-grid">
+                        <div class="bio-card">
+                            <h4><i data-lucide="home"></i> Early Life & Social Position</h4>
+                            <p id="bioEarlyLife"></p>
+                        </div>
+                        <div class="bio-card">
+                            <h4><i data-lucide="flame"></i> Personal Struggle / Turning Point</h4>
+                            <p id="bioTurningPoint"></p>
+                        </div>
+                        <div class="bio-card full-width">
+                            <h4><i data-lucide="eye"></i> The Lived Experience Behind the Theory</h4>
+                            <p id="bioLivedExperience"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: HISTORICAL CRUCIBLE -->
+                <div class="tab-pane" id="pane-timeline">
+                    <div class="pane-intro">
+                        <h3>The World They Lived In</h3>
+                        <p id="timelineIntro">What major wars, revolutions, economic shifts, and social crises were occurring when they wrote their key works?</p>
+                    </div>
+                    <div class="historical-timeline-list" id="timelineList">
+                        <!-- Injected via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- TAB 3: WHY THEY BELIEVED IT -->
+                <div class="tab-pane" id="pane-why">
+                    <div class="why-hero-box">
+                        <div class="why-icon"><i data-lucide="sparkle"></i></div>
+                        <div class="why-hero-content">
+                            <h3>The Core Human Intuition</h3>
+                            <p class="why-headline" id="whyHeadline"></p>
+                        </div>
+                    </div>
+
+                    <div class="why-explanation-content" id="whyDetailedExplanation">
+                        <!-- Injected via JavaScript -->
+                    </div>
+
+                    <div class="why-takeaway-card">
+                        <h4><i data-lucide="compass"></i> Why This Thought Matters Today</h4>
+                        <p id="whyModernRelevance"></p>
+                    </div>
+                </div>
+
+                <!-- TAB 4: KEY CONCEPTS & QUOTES -->
+                <div class="tab-pane" id="pane-concepts">
+                    <div class="pane-intro">
+                        <h3>Core Theoretical Framework & Primary Quotes</h3>
+                    </div>
+                    <div class="concepts-grid" id="conceptsList">
+                        <!-- Injected via JavaScript -->
+                    </div>
+                    
+                    <div class="primary-quotes-box">
+                        <h4><i data-lucide="quote"></i> Primary Archival Quotes</h4>
+                        <div class="quotes-list" id="quotesList">
+                            <!-- Injected via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-secondary" id="saveExhibitNoteBtn">
+                    <i data-lucide="bookmark-plus"></i> Bookmark Thinker to Journal
+                </button>
+                <button class="btn-primary" id="openNotePromptBtn">
+                    <i data-lucide="pen-tool"></i> Write Personal Reflection Note
+                </button>
+            </div>
+        </dialog>
+    </div>
+
+    <!-- VISITOR READING JOURNAL MODAL -->
+    <div class="modal-backdrop" id="journalModalBackdrop">
+        <dialog class="journal-modal" id="journalModal" aria-labelledby="journalTitle">
+            <div class="journal-header">
+                <div class="journal-title-area">
+                    <i data-lucide="book-marked"></i>
+                    <div>
+                        <h2 id="journalTitle">My Visitor Reading Journal</h2>
+                        <span class="journal-subtitle">Personal notes, saved reflections & exhibition highlights</span>
+                    </div>
+                </div>
+                <div class="journal-header-actions">
+                    <button class="btn-export-pdf" id="exportPdfBtn">
+                        <i data-lucide="printer"></i> Export PDF / Print Journal
+                    </button>
+                    <button class="modal-close-btn" id="closeJournalBtn" aria-label="Close Journal">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="journal-body">
+                <div class="add-note-box">
+                    <h3><i data-lucide="plus-circle"></i> Add a New Reflection Note</h3>
+                    <div class="form-row">
+                        <input type="text" id="noteTitleInput" placeholder="Topic or Thinker (e.g. Marx on Modern Remote Work)..." aria-label="Note Title">
+                        <select id="noteCategorySelect" aria-label="Note Category">
+                            <option value="General Reflection">General Reflection</option>
+                            <option value="Karl Marx">Karl Marx</option>
+                            <option value="Émile Durkheim">Émile Durkheim</option>
+                            <option value="Max Weber">Max Weber</option>
+                            <option value="Antonio Gramsci">Antonio Gramsci</option>
+                            <option value="Simone de Beauvoir">Simone de Beauvoir</option>
+                            <option value="Talcott Parsons">Talcott Parsons</option>
+                            <option value="Howard Becker">Howard Becker</option>
+                            <option value="Ann Oakley">Ann Oakley</option>
+                            <option value="Paul Willis">Paul Willis</option>
+                            <option value="Pierre Bourdieu">Pierre Bourdieu</option>
+                            <option value="Steve Bruce">Steve Bruce</option>
+                            <option value="Beck & Beck-Gernsheim">Beck & Beck-Gernsheim</option>
+                            <option value="Society Today">Society Today</option>
+                        </select>
+                    </div>
+                    <textarea id="noteContentInput" rows="3" placeholder="Write your personal thoughts, questions, or reflections here..." aria-label="Note Content"></textarea>
+                    <button class="btn-primary" id="saveNewNoteBtn">
+                        <i data-lucide="save"></i> Save Note to Journal
+                    </button>
+                </div>
+
+                <div class="journal-entries-section">
+                    <div class="section-headline">
+                        <h3>Saved Entries & Bookmarks (<span id="entryCountText">0</span>)</h3>
+                        <button class="btn-clear-all" id="clearAllNotesBtn">Clear All</button>
+                    </div>
+                    <div class="journal-entries-list" id="journalEntriesList">
+                        <!-- Entries injected dynamically -->
+                    </div>
+                </div>
+            </div>
+        </dialog>
+    </div>
+
+    <!-- PRINTABLE PDF TEMPLATE (Hidden on screen, styled with @media print) -->
+    <div id="printableJournalArea" class="printable-journal">
+        <div class="print-header">
+            <h1>The Sociology Archive & Library — Visitor Journal</h1>
+            <p>Personal Reading Notes & Exhibition Highlights</p>
+            <hr>
+        </div>
+        <div id="printEntriesContent"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="library-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <div class="brand-title">THE SOCIOLOGY ARCHIVE</div>
+                <p>An online museum dedicated to understanding the human origins and historical contexts behind sociology's greatest ideas.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Era Galleries</h4>
+                <ul>
+                    <li><a href="#gallery-era1">The Birth of Sociology (1800–1914)</a></li>
+                    <li><a href="#gallery-era2">Understanding Modern Society (1914–1970s)</a></li>
+                    <li><a href="#gallery-era3">Late Modernity (1980s–2005)</a></li>
+                    <li><a href="#gallery-era4">Society Today (2005–Present)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Archive Features</h4>
+                <ul>
+                    <li><a href="#" id="footerJournalLink">Visitor Reading Journal</a></li>
+                    <li><a href="#" id="footerPdfLink">Export PDF Reading Notes</a></li>
+                    <li><a href="#gallery-era4">Modern Reflection Wall</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Sociology Archive & Library. Crafted for curious minds & sociological imagination.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
