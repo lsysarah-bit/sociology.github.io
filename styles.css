@@ -1,0 +1,734 @@
+/* ==========================================================================
+   THE SOCIOLOGY ARCHIVE — HERTI LITERARY STYLE SHEET
+   Exact Color Palette (User Swatches):
+   - China Doll: #E0CBB9 (Warm Parchment Canvas)
+   - Plum Wine:  #754B4D (Deep Rich Wine for Headings & Primary Accents)
+   - Copper Rose:#A86A65 (Warm Copper Buttons & Prominent Badges)
+   - Dusty Rose: #AB8882 (Subtle Borders & Hover States)
+   - Rosewater:  #D8A694 (Secondary Accent & Quotes Border)
+   ========================================================================== */
+
+:root {
+    --china-doll:  #E0CBB9;
+    --china-doll-surface: #F2E7DC;
+    --china-doll-card:    #FAF3EB;
+
+    --plum-wine:   #754B4D;
+    --plum-wine-dark: #583537;
+    --plum-wine-soft: rgba(117, 75, 77, 0.08);
+
+    --copper-rose: #A86A65;
+    --copper-rose-hover: #935853;
+
+    --dusty-rose:  #AB8882;
+    --dusty-rose-light: #F0E3DF;
+
+    --rosewater:   #D8A694;
+    --rosewater-soft: rgba(216, 166, 148, 0.2);
+
+    /* Text Colors */
+    --text-primary: #3D2628;
+    --text-secondary: #634C4E;
+    --text-muted: #8E7476;
+    --text-light: #FAF3EB;
+
+    /* Fonts */
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Radius & Transitions */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+
+    --shadow-card: 0 8px 30px rgba(117, 75, 77, 0.08);
+    --shadow-door: 0 12px 35px rgba(117, 75, 77, 0.12);
+
+    --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--china-doll);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    color: var(--plum-wine);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+button {
+    font-family: var(--font-sans);
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: all var(--transition-smooth);
+}
+
+/* APP SHELL CONTAINER */
+.app {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   COVER / PROLOGUE SCREEN (HERTI STYLE)
+   ========================================================================== */
+.cover-screen {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--china-doll);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.cover-top-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.cover-logo {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--plum-wine);
+}
+
+.cover-sub {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--dusty-rose);
+    letter-spacing: 0.15em;
+}
+
+.cover-main-content {
+    max-width: 720px;
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cover-title {
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: var(--plum-wine);
+    margin-bottom: 0.2rem;
+    line-height: 1;
+}
+
+.cover-subtitle-cn {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    letter-spacing: 0.4em;
+    color: var(--dusty-rose);
+    margin-bottom: 3rem;
+}
+
+/* Line-by-Line Sequential Animation */
+.cover-tagline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.tagline-line {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.tagline-line.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tagline-line.line-3 {
+    font-style: italic;
+    color: var(--copper-rose);
+}
+
+.ornament-divider {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    letter-spacing: 0.5em;
+    color: var(--rosewater);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.ornament-divider.visible {
+    opacity: 1;
+}
+
+/* Start Button */
+.start-journey-btn {
+    background-color: var(--copper-rose);
+    color: var(--china-doll-card);
+    padding: 1.1rem 3rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    box-shadow: 0 6px 20px rgba(168, 106, 101, 0.25);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 1s ease, transform 1s ease, background-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.start-journey-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.start-journey-btn:hover {
+    background-color: var(--copper-rose-hover);
+    box-shadow: 0 10px 28px rgba(168, 106, 101, 0.35);
+}
+
+.cover-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.foot-hint {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+.foot-copyright {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   MUSEUM HALL (GALLERY DOORS)
+   ========================================================================== */
+.museum-hall {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--china-doll);
+    padding: 2rem 2rem 5rem 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hall-header, .room-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--dusty-rose);
+    margin-bottom: 3.5rem;
+}
+
+.nav-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--plum-wine);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.nav-back-btn:hover {
+    color: var(--copper-rose);
+}
+
+.hall-brand-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--plum-wine);
+    display: block;
+    text-align: center;
+}
+
+.hall-brand-sub {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    display: block;
+    text-align: center;
+}
+
+.badge-status {
+    background-color: var(--copper-rose);
+    color: #FFF;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-sm);
+}
+
+.hall-intro {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.hall-kicker {
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--copper-rose);
+    margin-bottom: 0.5rem;
+}
+
+.hall-title {
+    font-size: 2.8rem;
+    color: var(--plum-wine);
+    margin-bottom: 0.75rem;
+}
+
+.hall-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+}
+
+/* GALLERY DOORS GRID */
+.gallery-doors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-door-card {
+    background-color: var(--china-doll-card);
+    border: 1px solid var(--dusty-rose);
+    border-radius: var(--radius-md);
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery-door-card.door-active:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-door);
+    border-color: var(--copper-rose);
+}
+
+.gallery-door-card.door-locked {
+    opacity: 0.75;
+    cursor: not-allowed;
+    background-color: var(--china-doll-surface);
+}
+
+.door-frame-badge {
+    font-family: var(--font-serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--copper-rose);
+    margin-bottom: 0.8rem;
+}
+
+.door-frame-badge.locked {
+    color: var(--text-muted);
+}
+
+.door-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.door-dates {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--dusty-rose);
+    margin-bottom: 1.25rem;
+}
+
+.door-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.door-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--dusty-rose);
+    font-size: 0.85rem;
+}
+
+.door-exhibit-count {
+    color: var(--plum-wine);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.door-exhibit-count.muted {
+    color: var(--text-muted);
+}
+
+.door-enter-link {
+    color: var(--copper-rose);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   DURKHEIM EXHIBIT ROOM (2 SECTIONS ONLY)
+   ========================================================================== */
+.exhibit-room {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--china-doll);
+    padding: 2rem 2rem 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease;
+}
+
+.room-header-title {
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: var(--copper-rose);
+    font-weight: 600;
+}
+
+.room-hero {
+    background-color: var(--plum-wine);
+    color: var(--china-doll-card);
+    border-radius: var(--radius-lg);
+    padding: 3.5rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+    box-shadow: var(--shadow-door);
+}
+
+.author-portrait-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--rosewater);
+    color: var(--plum-wine-dark);
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--china-doll);
+    flex-shrink: 0;
+}
+
+.author-era-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rosewater);
+    margin-bottom: 0.3rem;
+}
+
+.author-display-name {
+    font-size: 3.2rem;
+    color: var(--china-doll);
+    margin-bottom: 0.2rem;
+}
+
+.author-meta-info {
+    font-size: 0.95rem;
+    color: var(--rosewater);
+    margin-bottom: 1.2rem;
+}
+
+.author-headline-quote {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--china-doll-surface);
+    line-height: 1.6;
+}
+
+/* SECTIONS BASE */
+.exhibit-section {
+    margin-bottom: 4rem;
+}
+
+.section-badge-header {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--dusty-rose);
+    padding-bottom: 0.75rem;
+}
+
+.section-num {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--copper-rose);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    color: var(--plum-wine);
+}
+
+/* SECTION 1: EDITORIAL STORY CARDS */
+.editorial-card-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.story-article-card {
+    background-color: var(--china-doll-card);
+    border: 1px solid var(--dusty-rose);
+    border-radius: var(--radius-md);
+    padding: 2.2rem;
+    box-shadow: var(--shadow-card);
+}
+
+.story-article-card.full-width {
+    grid-column: span 2;
+}
+
+.card-headline {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+}
+
+.card-headline i {
+    width: 22px;
+    height: 22px;
+    color: var(--copper-rose);
+}
+
+.story-paragraph {
+    font-size: 1.02rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+}
+
+.story-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+/* TIMELINE BOX */
+.timeline-visual-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--copper-rose);
+    margin-top: 1rem;
+}
+
+.timeline-point {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.t-year {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--copper-rose);
+}
+
+.t-details {
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+}
+
+.ornament-section-divider {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    letter-spacing: 0.5em;
+    color: var(--rosewater);
+    text-align: center;
+    margin: 4rem 0;
+}
+
+/* SECTION 2: THEORIES GRID & PUBLISHED QUOTES */
+.theories-display-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+}
+
+.theory-card {
+    background-color: var(--china-doll-card);
+    border: 1px solid var(--dusty-rose);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-card);
+}
+
+.theory-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--copper-rose);
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.theory-card h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.theory-card p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+/* PUBLISHED QUOTES CONTAINER */
+.published-quotes-container {
+    background-color: var(--china-doll-card);
+    border: 1px solid var(--dusty-rose);
+    border-radius: var(--radius-md);
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow-card);
+}
+
+.quotes-header-title {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.quotes-header-sub {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.quotes-editorial-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.published-quote-item {
+    padding-left: 1.5rem;
+    border-left: 4px solid var(--rosewater);
+}
+
+.quote-text {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--plum-wine);
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+}
+
+.quote-source {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--copper-rose);
+    font-style: normal;
+}
+
+.room-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+    border-top: 1px solid var(--dusty-rose);
+    margin-top: 5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+    .cover-title {
+        font-size: 3rem;
+    }
+    .editorial-card-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .story-article-card.full-width {
+        grid-column: span 1;
+    }
+    .room-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 1.8rem;
+    }
+}
